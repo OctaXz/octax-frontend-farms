@@ -1920,9 +1920,9 @@
     eslint-plugin-react "^7.21.5"
     eslint-plugin-react-hooks "^4.0.0"
 
-"@pancakeswap-libs/uikit@netdefi/net-uikit":
+"@pancakeswap-libs/uikit@OctaXz/octax-uikit":
   version "0.10.2"
-  resolved "https://codeload.github.com/netdefi/net-uikit/tar.gz/ebe883a703f1a836f966acaa2511fc0b49e319f1"
+  resolved "https://codeload.github.com/OctaXz/octax-uikit/tar.gz/6413d0d3f3b2025160f44a427c39c36056f72e1c"
   dependencies:
     "@types/lodash" "^4.14.162"
     "@types/styled-system" "^5.1.10"
