@@ -83,7 +83,7 @@ const config: MenuEntry[] = [
     items: [
       {
         label: 'Github',
-        href: 'https://github.com/octax/',
+        href: 'https://github.com/octaxz/',
       },
       {
         label: 'Docs',
