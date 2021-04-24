@@ -7,8 +7,7 @@ const Block = styled.div`
   margin-bottom: 16px;
 `
 
-const CardImage = styled.img`
-  margin-bottom: 16px;  
+const CardImage = styled.img` 
    max-width: 100%;
     margin-left: auto;
     margin-right: auto;

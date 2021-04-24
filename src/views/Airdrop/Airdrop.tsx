@@ -23,7 +23,7 @@ const Hero = styled.div`
   ${({ theme }) => theme.mediaQueries.lg} {
     background-image: url('/images/net/3.png'), url('/images/net/3b.png');
     background-position: left center, right center;
-    height: 165px;
+     
     padding-top: 0;
   }
 `
@@ -60,11 +60,24 @@ const Airdrop: React.FC = () => {
         <Heading as="h1" size="xl" mb="24px" color="secondary">
           {TranslateString(576, 'OctaX Finance')}
         </Heading>
-        <Text>{TranslateString(578, 'OctaX DEFI app on Binance Smart Chain.')}</Text>
+        <Heading font-size="xl">Airdrop Distribution
+
+        </Heading>
+          <div>
+              <Heading>
+                  <Text>According to the current OctaX configuration, </Text>
+                  <Text>10% of all transaction fees in any pool  </Text>
+
+                  <Text>will be distributed proportionally to the liquidity providers in the pool.</Text>
+
+                  <Text>In OctaX, 1% goes directly to active liquidity providers,</Text>
+                  <Text>and the remaining 4% will be exchanged for OctaX (obviously through OctaX swap)</Text>
+                  <Text>and distributed to OctaX token holders over 1 month.</Text>
+              </Heading>
+          </div>
       </Hero>
       <div>
             <AirDropCard/>
-
       </div>
     </Page>
   )
