@@ -22,11 +22,11 @@ const config: MenuEntry[] = [
     items: [
       {
         label: 'Exchange',
-        href: 'https://master.d7oo7a0o9fxw3.amplifyapp.com/#/swap?inputCurrency=0xe9e7cea3dedca5984780bafc599bd69add087d56&outputCurrency=0x995A251C24B2a4280765E29a27052d31d355e744',
+        href: 'https://exchange.octax.finance/#/swap?inputCurrency=0xe9e7cea3dedca5984780bafc599bd69add087d56&outputCurrency=0x995A251C24B2a4280765E29a27052d31d355e744',
       },
       {
         label: 'Liquidity',
-        href: 'https://master.d7oo7a0o9fxw3.amplifyapp.com/#/pool',
+        href: 'https://exchange.octax.finance/#/pool',
       },
     ],
   },
