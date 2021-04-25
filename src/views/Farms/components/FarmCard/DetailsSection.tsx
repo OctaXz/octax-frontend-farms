@@ -54,9 +54,9 @@ const DetailsSection: React.FC<ExpandableSectionProps> = ({
         <Text>{TranslateString(316, 'Stake')}:</Text>
         <StyledLinkExternal href={
           isTokenOnly ?
-            `https://exchange.octax.com/#/swap/${tokenAddresses[process.env.REACT_APP_CHAIN_ID]}`
+            `https://exchange.octax.finance/#/swap/${tokenAddresses[process.env.REACT_APP_CHAIN_ID]}`
             :
-          `https://exchange.octax.com/#/add/${liquidityUrlPathParts}`
+          `https://exchange.octax.finance/#/add/${liquidityUrlPathParts}`
         }>
           {lpLabel}
         </StyledLinkExternal>

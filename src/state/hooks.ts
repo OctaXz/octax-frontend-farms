@@ -22,7 +22,7 @@ export const useFetchPublicData = () => {
 
 export const useFarms = (): Farm[] => {
   const farms = useSelector((state: State) => state.farms.data)
-  console.log("farms",farms)
+  // console.log("farms",farms)
   return farms
 }
 
@@ -86,11 +86,11 @@ export const usePoolFromPid = (sousId): Pool => {
 // Prices
 
 export const usePriceBnbBusd = (): BigNumber => {
-  return ZERO;
-  // const pid = 1 // BUSD-BNB LP
-  // const farm = useFarmFromPid(pid)
+  // return ZERO;
+   const pid = 12 // BUSD-BNB LP
+   const farm = useFarmFromPid(pid)
 
-  // return farm.tokenPriceVsQuote ? new BigNumber(farm.tokenPriceVsQuote) : ZERO;
+  return farm.tokenPriceVsQuote ? new BigNumber(farm.tokenPriceVsQuote) : ZERO;
 }
 
 export const usePriceCakeBusd = (): BigNumber => {
@@ -99,7 +99,7 @@ export const usePriceCakeBusd = (): BigNumber => {
   // const farm = useFarmFromPid(pid)
   // return farm.tokenPriceVsQuote ? bnbPriceUSD.times(farm.tokenPriceVsQuote) : ZERO
 
-  const pid = 2; // Net-BUSD LP
+  const pid = 2; // OctaX-BUSD LP
   const farm = useFarmFromPid(pid);
   return farm.tokenPriceVsQuote ? new BigNumber(farm.tokenPriceVsQuote) : ZERO;
 }

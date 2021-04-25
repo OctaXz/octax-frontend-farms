@@ -51,7 +51,7 @@ export const useBurnedBalance = (tokenAddress: string) => {
   useEffect(() => {
     const fetchBalance = async () => {
       const cakeContract = getContract(cakeABI, getCakeAddress())
-      const bal = await cakeContract.methods.balanceOf('0x000000000000000000000000000000000000dEaD').call()
+      const bal = await cakeContract.methods.balanceOf('0x5555500000000000005555500000000000055555').call()
       setBalance(new BigNumber(bal))
     }
 

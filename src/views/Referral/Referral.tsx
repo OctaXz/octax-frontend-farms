@@ -19,7 +19,7 @@ const Referral: React.FC = () => {
 
     const { onReferral } = useReferral(val)
     const isRegister = useReferrals(account)
-    console.log(isRegister)
+    // console.log(isRegister)
     const [pendingTx, setPendingTx] = useState(false)
     const [error, setError] = useState(true)
     const handleChange = useCallback(

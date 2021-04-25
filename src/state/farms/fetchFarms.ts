@@ -108,7 +108,7 @@ const fetchFarms = async () => {
 
       }
 
-      const [info, totalAllocPoint, DragonMoonPerBlock] = await multicall(masterchefABI, [
+      const [info, totalAllocPoint, OctaXPerBlock] = await multicall(masterchefABI, [
         {
           address: getMasterChefAddress(),
           name: 'poolInfo',
@@ -120,23 +120,23 @@ const fetchFarms = async () => {
         },
         {
           address: getMasterChefAddress(),
-          name: 'DragonMoonPerBlock',
+          name: 'OctaXPerBlock',
         },
       ])
 
       const allocPoint = new BigNumber(info.allocPoint._hex)
       const poolWeight = allocPoint.div(new BigNumber(totalAllocPoint))
-      console.log({
-        ...farmConfig,
-        tokenAmount: tokenAmount.toJSON(),
-        // quoteTokenAmount: quoteTokenAmount,
-        lpTotalInQuoteToken: lpTotalInQuoteToken.toJSON(),
-        tokenPriceVsQuote: tokenPriceVsQuote.toJSON(),
-        poolWeight: poolWeight.toNumber(),
-        multiplier: `${allocPoint.div(100).toString()}X`,
-        depositFeeBP: info.depositFeeBP,
-        eggPerBlock: new BigNumber(DragonMoonPerBlock).toNumber(),
-      })
+      // console.log("OK",{
+      //   ...farmConfig,
+      //   tokenAmount: tokenAmount.toJSON(),
+      //   // quoteTokenAmount: quoteTokenAmount,
+      //   lpTotalInQuoteToken: lpTotalInQuoteToken.toJSON(),
+      //   tokenPriceVsQuote: tokenPriceVsQuote.toJSON(),
+      //   poolWeight: poolWeight.toNumber(),
+      //   multiplier: `${allocPoint.div(100).toString()}X`,
+      //   depositFeeBP: info.depositFeeBP,
+      //   eggPerBlock: new BigNumber(OctaXPerBlock).toNumber(),
+      // })
       return {
         ...farmConfig,
         tokenAmount: tokenAmount.toJSON(),
@@ -146,7 +146,7 @@ const fetchFarms = async () => {
         poolWeight: poolWeight.toNumber(),
         multiplier: `${allocPoint.div(100).toString()}X`,
         depositFeeBP: info.depositFeeBP,
-        eggPerBlock: new BigNumber(DragonMoonPerBlock).toNumber(),
+        eggPerBlock: new BigNumber(OctaXPerBlock).toNumber(),
       }
     }),
   )
