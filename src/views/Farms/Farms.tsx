@@ -4,7 +4,9 @@ import { useDispatch } from 'react-redux'
 import BigNumber from 'bignumber.js'
 import { useWallet } from '@binance-chain/bsc-use-wallet'
 import { provider } from 'web3-core'
-import { Image, Heading } from '@pancakeswap-libs/uikit'
+import styled from "styled-components";
+
+import { Image, Heading , Text , Tag} from '@pancakeswap-libs/uikit'
 import { BLOCKS_PER_YEAR, CAKE_PER_BLOCK, CAKE_POOL_PID } from 'config'
 import FlexLayout from 'components/layout/Flex'
 import Page from 'components/layout/Page'
@@ -20,6 +22,11 @@ import Divider from './components/Divider'
 export interface FarmsProps{
   tokenMode?: boolean
 }
+
+
+const MultiplierTag = styled(Tag)`
+  margin-left: 4px;
+`
 
 const Farms: React.FC<FarmsProps> = (farmsProps) => {
   const { path } = useRouteMatch()
@@ -93,7 +100,17 @@ const Farms: React.FC<FarmsProps> = (farmsProps) => {
 
   return (
     <Page>
-      <Heading as="h1" size="lg" color="primary" mb="50px" style={{ textAlign: 'center' }}>
+
+
+
+      <Heading as="h1"  mb="20px"   style={{fontSize:36}} >
+        LP Token Migration
+        OctaX is being upgraded!
+        Migrate your LP tokens to continue earning.
+      </Heading>
+
+       {/* <Heading as="h2" color="secondary" mb="20px" style={{ textAlign: 'center' }}>
+      <Heading as="h1" size="lg" color="primary" mb="20px" style={{ textAlign: 'center' }}>
         {
           tokenMode ?
             TranslateString(10002, 'Stake tokens to earn OctaX')
@@ -101,9 +118,23 @@ const Farms: React.FC<FarmsProps> = (farmsProps) => {
           TranslateString(320, 'Stake LP tokens to earn OctaX')
         }
       </Heading>
-      <Heading as="h2" color="secondary" mb="50px" style={{ textAlign: 'center' }}>
+
         {TranslateString(10000, 'Deposit Fee will be used to buyback OctaX')}
+      </Heading> */}
+        <Heading as="h1" color="secondary" mb="20px" style={{ textAlign: 'left' }}>
+           <Text  mb="5px"><MultiplierTag variant="primary">V.1</MultiplierTag> Farm Version 1.0 (Migrate)</Text>
+           <Text mb="10px"><MultiplierTag variant="primary">V.2</MultiplierTag> Farm Version 2.0</Text>
+
+
+            <Text bold> {
+          tokenMode ?
+            TranslateString(10002, 'Stake tokens to earn OctaX')
+            :
+          TranslateString(320, 'Stake LP tokens to earn OctaX')
+        }</Text>
+              <Text bold> {TranslateString(10000, 'Deposit Fee will be used to buyback OctaX')}</Text>
       </Heading>
+
       <FarmTabButtons stakedOnly={stakedOnly} setStakedOnly={setStakedOnly}/>
       <div>
         <Divider />

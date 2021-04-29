@@ -20,13 +20,19 @@ const config: MenuEntry[] = [
     label: 'Trade',
     icon: 'TradeIcon',
     items: [
+      //   {
+      //   label: 'Exchange',
+      //   href: 'https://exchange.octax.finance/#/swap?inputCurrency=0xe9e7cea3dedca5984780bafc599bd69add087d56&outputCurrency=0x39cab1DdaFDa34B9202F5a41f71B15d2F3EbA2aC',
+      // },
       {
         label: 'Exchange',
         href: 'https://exchange.pancakeswap.finance/#/swap?inputCurrency=0xe9e7cea3dedca5984780bafc599bd69add087d56&outputCurrency=0x39cab1DdaFDa34B9202F5a41f71B15d2F3EbA2aC',
+        target : "_blank",
       },
       {
         label: 'Liquidity',
         href: 'https://exchange.pancakeswap.finance/#/pool',
+        target : "_blank",
       },
     ],
   },
@@ -62,6 +68,7 @@ const config: MenuEntry[] = [
       {
         label: 'PancakeSwap',
         href: 'https://pancakeswap.info/token/0x39cab1DdaFDa34B9202F5a41f71B15d2F3EbA2aC',
+        target : "_blank",
       },
       // {
       //   label: 'Token',
@@ -74,6 +81,7 @@ const config: MenuEntry[] = [
       {
         label: 'Transparency',
         href: 'https://app.astrotools.io/pancake-pair-explorer/0x39cab1DdaFDa34B9202F5a41f71B15d2F3EbA2aC',
+        target : "_blank",
       },
     ],
   },
@@ -84,14 +92,17 @@ const config: MenuEntry[] = [
       {
         label: 'Github',
         href: 'https://github.com/octaxz/',
+        target : "_blank",
       },
       {
         label: 'Docs',
         href: 'https://octax.gitbook.io/octax/',
+        target : "_blank",
       },
       {
         label: 'Blog',
         href: 'https://octax.medium.com/',
+        target : "_blank",
       },
     ],
   },

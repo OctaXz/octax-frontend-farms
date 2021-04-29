@@ -15,7 +15,8 @@ interface FarmCardActionsProps {
   tokenName?: string
   pid?: number
   depositFeeBP?: number ,
-  isLockDay? : boolean
+  isLockDay? : boolean,
+  version? : number
 }
 
 const IconButtonWrapper = styled.div`
@@ -25,7 +26,7 @@ const IconButtonWrapper = styled.div`
   }
 `
 
-const StakeAction: React.FC<FarmCardActionsProps> = ({ stakedBalance, tokenBalance, tokenName, pid, depositFeeBP, isLockDay} ) => {
+const StakeAction: React.FC<FarmCardActionsProps> = ({ stakedBalance, tokenBalance, tokenName, pid, depositFeeBP, isLockDay, version} ) => {
   const TranslateString = useI18n()
   const { onStake } = useStake(pid)
   const { onUnstake } = useUnstake(pid)
@@ -40,18 +41,23 @@ const StakeAction: React.FC<FarmCardActionsProps> = ({ stakedBalance, tokenBalan
 
 
   const renderStakingButtons = () => {
-    return rawStakedBalance === 0 ? (
-      <Button onClick={onPresentDeposit}>{TranslateString(999, 'Stake')}</Button>
+
+
+    return rawStakedBalance === 0 ? ( version === 2 && (<Button onClick={onPresentDeposit}>{TranslateString(999, 'Stake')}</Button>)
     ) : (
       <IconButtonWrapper>
-        {isLockDay && (
-        <IconButton variant="tertiary" onClick={onPresentWithdraw} mr="6px">
-          <MinusIcon color="primary" />
-        </IconButton>
-        )}
-        <IconButton variant="tertiary" onClick={onPresentDeposit}>
-          <AddIcon color="primary" />
-        </IconButton>
+        {
+          isLockDay && (
+            <IconButton variant="tertiary" onClick={onPresentWithdraw} mr="6px">
+              <MinusIcon color="primary" />
+            </IconButton>
+            )}
+        {
+          version === 2  &&
+            (<IconButton variant="tertiary" onClick={onPresentDeposit}>
+            <AddIcon color="primary" />
+          </IconButton>)
+        }
       </IconButtonWrapper>
     )
   }

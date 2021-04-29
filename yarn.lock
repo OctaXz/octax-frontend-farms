@@ -1922,7 +1922,7 @@
 
 "@pancakeswap-libs/uikit@OctaXz/octax-uikit":
   version "0.10.2"
-  resolved "https://codeload.github.com/OctaXz/octax-uikit/tar.gz/b5a1decbb2736ac6af036358df31eb6ecca9e8f8"
+  resolved "https://codeload.github.com/OctaXz/octax-uikit/tar.gz/2eff9e870ed601481df3d1cb01aadfd68def4ba1"
   dependencies:
     "@types/lodash" "^4.14.162"
     "@types/styled-system" "^5.1.10"

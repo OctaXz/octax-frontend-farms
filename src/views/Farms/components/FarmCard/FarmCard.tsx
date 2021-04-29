@@ -123,7 +123,7 @@ const FarmCard: React.FC<FarmCardProps> = ({ farm, removed, cakePrice, bnbPrice,
     maximumFractionDigits: 2,
   })
 
-  const { quoteTokenAdresses, quoteTokenSymbol, tokenAddresses, risk } = farm
+  const { quoteTokenAdresses, quoteTokenSymbol, tokenAddresses, risk  } = farm
 
   return (
     <FCard>
@@ -132,6 +132,7 @@ const FarmCard: React.FC<FarmCardProps> = ({ farm, removed, cakePrice, bnbPrice,
         lpLabel={lpLabel}
         multiplier={farm.multiplier}
         risk={risk}
+        version={farm.version}
         depositFee={farm.depositFeeBP}
         farmImage={farmImage}
         tokenSymbol={farm.tokenSymbol}

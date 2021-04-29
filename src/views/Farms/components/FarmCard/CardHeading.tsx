@@ -7,6 +7,7 @@ export interface ExpandableSectionProps {
   lpLabel?: string
   multiplier?: string
   risk?: number
+  version? : number
   depositFee?: number
   farmImage?: string
   tokenSymbol?: string
@@ -25,7 +26,8 @@ const MultiplierTag = styled(Tag)`
 const CardHeading: React.FC<ExpandableSectionProps> = ({
   lpLabel,
   multiplier,
-  risk,
+  risk, version ,
+
   farmImage,
   tokenSymbol,
   depositFee,
@@ -40,6 +42,8 @@ const CardHeading: React.FC<ExpandableSectionProps> = ({
           {/* {isCommunityFarm ? <CommunityTag /> : <CoreTag />} */}
           {/* <RiskTag risk={risk} /> */}
           <MultiplierTag variant="secondary">{multiplier}</MultiplierTag>
+
+          {version && (<MultiplierTag variant="primary">V.{version}</MultiplierTag>) }
         </Flex>
       </Flex>
     </Wrapper>
