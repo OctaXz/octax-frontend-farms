@@ -22,11 +22,11 @@ const config: MenuEntry[] = [
     items: [
       {
         label: 'Exchange',
-        href: 'https://exchange.octax.finance/#/swap?inputCurrency=0xe9e7cea3dedca5984780bafc599bd69add087d56&outputCurrency=0x995A251C24B2a4280765E29a27052d31d355e744',
+        href: 'https://exchange.pancakeswap.finance/#/swap?inputCurrency=0xe9e7cea3dedca5984780bafc599bd69add087d56&outputCurrency=0x39cab1DdaFDa34B9202F5a41f71B15d2F3EbA2aC',
       },
       {
         label: 'Liquidity',
-        href: 'https://exchange.octax.finance/#/pool',
+        href: 'https://exchange.pancakeswap.finance/#/pool',
       },
     ],
   },
@@ -61,7 +61,7 @@ const config: MenuEntry[] = [
     items: [
       {
         label: 'PancakeSwap',
-        href: 'https://pancakeswap.info/token/0x995A251C24B2a4280765E29a27052d31d355e744',
+        href: 'https://pancakeswap.info/token/0x39cab1DdaFDa34B9202F5a41f71B15d2F3EbA2aC',
       },
       // {
       //   label: 'Token',
@@ -73,7 +73,7 @@ const config: MenuEntry[] = [
       // },
       {
         label: 'Transparency',
-        href: 'https://app.astrotools.io/pancake-pair-explorer/0x995A251C24B2a4280765E29a27052d31d355e744',
+        href: 'https://app.astrotools.io/pancake-pair-explorer/0x39cab1DdaFDa34B9202F5a41f71B15d2F3EbA2aC',
       },
     ],
   },
