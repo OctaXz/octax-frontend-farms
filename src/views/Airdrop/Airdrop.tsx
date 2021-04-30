@@ -13,12 +13,12 @@ const Hero = styled.div`
   background-repeat: no-repeat;
   background-position: top center;
   display: flex;
-  justify-content: center;
+  justify-content: left;
   flex-direction: column;
   margin: auto;
-  margin-bottom: 32px;
+  margin-bottom: 10px;
   padding-top: 116px;
-  text-align: center;
+  text-align: left;
 
   ${({ theme }) => theme.mediaQueries.lg} {
     background-image: url('/images/net/3.png'), url('/images/net/3b.png');
@@ -57,25 +57,19 @@ const Airdrop: React.FC = () => {
   return (
     <Page>
       <Hero>
-        <Heading as="h1" size="xl" mb="24px" color="secondary">
+        <Heading as="h1" size="xl" mb="20px" color="secondary">
           {TranslateString(576, 'OctaX Finance')}
         </Heading>
-        <Heading font-size="xl">Airdrop Distribution
 
+        <Heading mb="2px"  style={{fontSize:36}}>Airdrop Distribution
         </Heading>
+          </Hero>
           <div>
-              <Heading>
-                  <Text>According to the current OctaX configuration, </Text>
-                  <Text>10% of all transaction fees in any pool  </Text>
-
-                  <Text>will be distributed proportionally to the liquidity providers in the pool.</Text>
-
-                  <Text>In OctaX, 1% goes directly to active liquidity providers,</Text>
-                  <Text>and the remaining 4% will be exchanged for OctaX (obviously through OctaX swap)</Text>
-                  <Text>and distributed to OctaX token holders over 1 month.</Text>
+              <Heading as="h1"      >
+                  <Text style={{fontSize:20}}>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;According to the current OctaX configuration, 10% of withdrawal fees(on profit) in any pool will be distributed proportionally to the liquidity providers in the pool.In OctaX, 1% goes directly to active liquidity providers, and the remaining 4% will be exchanged for OctaX (obviously through OctaX swap) and distributed to OctaX token holders over 1 month(This is airdrop for holder). The remaining 5% will be taken for OctaX buy back and burned.</Text>
               </Heading>
           </div>
-      </Hero>
+
       <div>
             <AirDropCard/>
       </div>
