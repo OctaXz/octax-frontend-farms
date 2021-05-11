@@ -1,5 +1,5 @@
 import BigNumber from 'bignumber.js'
-import { FarmConfig, PoolConfig, ReferralConfig } from 'config/constants/types'
+import { FarmConfig, PoolConfig, ReferralConfig, AirdropConfig } from 'config/constants/types'
 
 export interface Farm extends FarmConfig {
   tokenAmount?: BigNumber
@@ -36,6 +36,17 @@ export interface Referral extends ReferralConfig {
   }]
 }
 
+export interface Airdrop extends AirdropConfig {
+  userInfo?: {      
+      userAddress: string,
+      totalAirdrop: number,
+      totalOctaXAmount: number,
+      totalOctaGAmount: number,
+      lastTimestamp: number,
+      targetTime: number,
+  }
+}
+
 // Slices states
 
 export interface FarmsState {
@@ -50,10 +61,15 @@ export interface ReferralState {
   data: Referral
 }
 
+export interface AirdropState {
+  data: Airdrop
+}
+
 // Global state
 
 export interface State {
   farms: FarmsState
   pools: PoolsState
   referral: ReferralState
+  airdrop: AirdropState
 }

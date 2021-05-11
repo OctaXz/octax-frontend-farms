@@ -120,3 +120,20 @@ export const soushHarvestBnb = async (sousChefContract, account) => {
       return tx.transactionHash
     })
 }
+export const registerAirdrop = async (airdropContract, account) => {
+  return airdropContract.methods
+    .registerAirdrop()
+    .send({ from: account })
+    .on('transactionHash', (tx) => {
+      return tx.transactionHash
+    })
+}
+
+export const claimAirdrop = async (airdropContract, account) => {
+  return airdropContract.methods
+    .ClaimBonus()
+    .send({ from: account })
+    .on('transactionHash', (tx) => {
+      return tx.transactionHash
+    })
+}

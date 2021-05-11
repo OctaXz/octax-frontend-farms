@@ -1,25 +1,52 @@
 import React, { useState, useEffect } from 'react'
 import styled from 'styled-components'
-import { ButtonMenu, ButtonMenuItem } from '@pancakeswap-libs/uikit'
+import {Button, ButtonMenu, ButtonMenuItem, Heading, LogoIcon, Text} from '@pancakeswap-libs/uikit'
 import { useWallet } from '@binance-chain/bsc-use-wallet'
 import PastLotteryDataContext from 'contexts/PastLotteryDataContext'
 import { getLotteryIssueIndex } from 'utils/lotteryUtils'
 import useI18n from 'hooks/useI18n'
 import { useLottery } from 'hooks/useContract'
 import Page from 'components/layout/Page'
-import Hero from './components/Hero'
 import Divider from './components/Divider'
 import NextDrawPage from './NextDrawPage'
 import PastDrawsPage from './PastDrawsPage'
+
+
+const Hero = styled.div`
+  align-items: center;
+  background-image: url('/images/net/3.png');
+  background-repeat: no-repeat;
+  background-position: top center;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  margin: auto;
+  margin-bottom: 32px;
+  padding-top: 116px;
+  text-align: center;
+
+  ${({ theme }) => theme.mediaQueries.lg} {
+    background-image: url('/images/net/3.png'), url('/images/net/3b.png');
+    background-position: left center, right center;
+    height: 165px;
+    padding-top: 0;
+  }
+`
 
 const Wrapper = styled.div`
   position: relative;
   display: flex;
   align-items: center;
-  justify-content: center;
-  margin-bottom: 32px;
+  justify-content: center; 
 `
 
+const StyledNotFound = styled.div`
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  height: calc(100vh - 20px);
+  justify-content: center;
+`
 const Lottery: React.FC = () => {
   const lotteryContract = useLottery()
   const { account } = useWallet()
@@ -59,20 +86,20 @@ const Lottery: React.FC = () => {
 
   return (
     <>
-      <Hero />
+
+
       <Page>
-        <Wrapper>
-          <ButtonMenu activeIndex={activeIndex} onClick={handleClick} size="sm" variant="subtle">
-            <ButtonMenuItem>{TranslateString(999, 'Next draw')}</ButtonMenuItem>
-            <ButtonMenuItem>{TranslateString(999, 'Past draws')}</ButtonMenuItem>
-          </ButtonMenu>
-        </Wrapper>
-        <Divider />
-        <PastLotteryDataContext.Provider
-          value={{ historyError, historyData, mostRecentLotteryNumber, currentLotteryNumber }}
-        >
-          {activeIndex === 0 ? <NextDrawPage /> : <PastDrawsPage />}
-        </PastLotteryDataContext.Provider>
+
+      <Hero>
+        <Heading as="h1" size="xl" mb="24px" color="secondary">
+          {TranslateString(576, 'OctaX Finance')}
+        </Heading>
+        <Text>{TranslateString(578, 'OctaX DEFI app on Binance Smart Chain.')}</Text>
+      </Hero>
+        <Heading size="xxl" style={{ textAlign: 'center' }}> Lottery coming soon. </Heading>
+
+
+
       </Page>
     </>
   )

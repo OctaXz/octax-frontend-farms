@@ -20,3 +20,11 @@ export const getLotteryAddress = () => {
 export const getLotteryTicketAddress = () => {
   return addresses.lotteryNFT[chainId]
 }
+
+export const getAirdropAddress = () => {
+  return addresses.airdrop[chainId]
+}
+
+export const getOctagAddress = () => {
+  return addresses.octag[chainId]
+}

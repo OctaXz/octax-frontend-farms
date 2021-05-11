@@ -3,7 +3,7 @@ import { Card, CardBody, Heading, Text } from '@pancakeswap-libs/uikit'
 import BigNumber from 'bignumber.js/bignumber'
 import styled from 'styled-components'
 import { getBalanceNumber } from 'utils/formatBalance'
-import { useTotalSupply, useBurnedBalance } from 'hooks/useTokenBalance'
+import { useTotalSupply, useBurnedBalance, useMaxSupply } from 'hooks/useTokenBalance'
 import useI18n from 'hooks/useI18n'
 import { getCakeAddress } from 'utils/addressHelpers'
 import CardValue from './CardValue'
@@ -31,7 +31,7 @@ const CakeStats = () => {
   const circSupply = totalSupply ? totalSupply.minus(burnedBalance) : new BigNumber(0);
   const cakeSupply = getBalanceNumber(circSupply);
   const marketCap = eggPrice.times(circSupply);
-
+  const maxSupply = useMaxSupply()
   let eggPerBlock = 0;
   if(farms && farms[0] && farms[0].eggPerBlock){
     eggPerBlock = new BigNumber(farms[0].eggPerBlock).div(new BigNumber(10).pow(18)).toNumber();
@@ -59,6 +59,11 @@ const CakeStats = () => {
           <Text fontSize="14px">{TranslateString(10004, 'Circulating Supply')}</Text>
           {cakeSupply && <CardValue fontSize="14px" value={cakeSupply} decimals={0} />}
         </Row>
+        <Row>
+          <Text fontSize="14px">Max Supply</Text>
+          {maxSupply && <CardValue fontSize="14px" value={getBalanceNumber(maxSupply)} decimals={0} />}
+        </Row>
+
         <Row>
           <Text fontSize="14px">{TranslateString(540, 'New Net/block')}</Text>
           <Text bold fontSize="14px">{eggPerBlock}</Text>

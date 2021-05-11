@@ -41,8 +41,10 @@ const CardHeading: React.FC<ExpandableSectionProps> = ({
           {depositFee === 0 ? <NoFeeTag /> : null}
           {/* {isCommunityFarm ? <CommunityTag /> : <CoreTag />} */}
           {/* <RiskTag risk={risk} /> */}
-          <MultiplierTag variant="secondary">{multiplier}</MultiplierTag>
 
+        </Flex>
+        <Flex mt={depositFee === 0 ? "4px":""}>
+          <MultiplierTag variant="secondary">{multiplier}</MultiplierTag>
           {version && (<MultiplierTag variant="primary">V.{version}</MultiplierTag>) }
         </Flex>
       </Flex>

@@ -89,3 +89,11 @@ export type Nft = {
   sortOrder: number
   bunnyId: number
 }
+
+export interface AirdropConfig {
+  totalPayOctaXAmount: number
+  totalPayOctaGAmount: number
+  userAirdropLength: number
+  octaXNextAirdropAmount: number
+  octaGNextAirdropAmount: number
+}

@@ -8,6 +8,7 @@ import GlobalStyle from './style/Global'
 import Menu from './components/Menu'
 import PageLoader from './components/PageLoader'
 import NftGlobalNotification from './views/Nft/components/NftGlobalNotification'
+import Lottery from "./views/Lottery";
 
 // Route-based code splitting
 // Only pool is included in the main bundle because of it's the most visited page'
@@ -66,9 +67,9 @@ const App: React.FC = () => {
             {/* <Route path="/pools"> */}
             {/*  <Pools /> */}
             {/* </Route> */}
-            {/* <Route path="/lottery"> */}
-            {/*  <Lottery /> */}
-            {/* </Route> */}
+             <Route path="/lottery">
+              <Lottery />
+             </Route>
             {/* <Route path="/ifo"> */}
             {/*  <Ifos /> */}
             {/* </Route> */}
