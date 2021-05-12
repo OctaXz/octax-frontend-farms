@@ -52,7 +52,7 @@ const config: MenuEntry[] = [
   //   href: '/pools',
   // },
    {
-    label: 'Lottery',
+    label: 'Lucky Lottery',
     icon: 'TicketIcon',
     href: '/lottery',
   },
