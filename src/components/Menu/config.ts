@@ -118,7 +118,7 @@ const config: MenuEntry[] = [
     target : "_blank",
   },
   {
-    label: 'CertiK(In Progress)',
+    label: 'CertiK(Soon)',
     icon: 'AuditIcon',
      href: 'https://octax.gitbook.io/octax/octax-vault/audit',
     target : "_blank",
