@@ -96,7 +96,7 @@ const Lottery: React.FC = () => {
         </Heading>
         <Text>{TranslateString(578, 'OctaX DEFI app on Binance Smart Chain.')}</Text>
       </Hero>
-        <Heading size="xxl" style={{ textAlign: 'center' }}> Lottery coming soon. </Heading>
+        <Heading size="xxl" style={{ textAlign: 'center' }}> Lucky Lottery coming soon. </Heading>
 
 
 

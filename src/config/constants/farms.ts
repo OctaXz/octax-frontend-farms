@@ -226,7 +226,41 @@ const farms: FarmConfig[] = [
     },
     quoteTokenSymbol: QuoteToken.BUSD,
     quoteTokenAdresses: contracts.busd,
-  },                          
+  },
+  {
+    pid: 14,
+    risk: 5,
+    version : 2 ,
+    lpSymbol: 'OCTAX-USDT LP',
+    lpAddresses: {
+      97: '',
+      56: '0x9b22B0D3B9276b00AA7F7265B70BfDF21A0694Fb',
+    },
+    tokenSymbol: 'OCTAX',
+    tokenAddresses: {
+      97: '',
+      56: '0x39cab1DdaFDa34B9202F5a41f71B15d2F3EbA2aC',
+    },
+    quoteTokenSymbol: QuoteToken.USDT,
+    quoteTokenAdresses: contracts.usdt,
+  },
+  {
+    pid: 15,
+    risk: 5,
+    version : 2 ,
+    lpSymbol: 'OCTAG-USDT LP',
+    lpAddresses: {
+      97: '',
+      56: '0xe5873e84aed357d6f11d6f784dab7d2c91b92949',
+    },
+    tokenSymbol: 'OCTAG',
+    tokenAddresses: {
+      97: '',
+      56: '0x4F1498da0f50F94e97F900b7e6E13d8e5220aBE9',
+    },
+    quoteTokenSymbol: QuoteToken.USDT,
+    quoteTokenAdresses: contracts.usdt,
+  },
 ]
 
 export default farms
