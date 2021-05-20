@@ -2,10 +2,13 @@
 import BigNumber from 'bignumber.js'
 import { Interface } from '@ethersproject/abi'
 import { getWeb3 } from 'utils/web3'
+import erc20 from 'config/abi/erc20.json'
+import multicall from 'utils/multicall'
 import MultiCallAbi from 'config/abi/Multicall.json'
 import ticketAbi from 'config/abi/lotteryNft.json'
 import lotteryAbi from 'config/abi/lottery.json'
-import { getMulticallAddress } from './addressHelpers'
+import { LOTTERY_TICKET_PRICE } from 'config'
+import { getMulticallAddress,getLotteryAddress } from './addressHelpers'
 
 export const multiCall = async (abi, calls) => {
   const web3 = getWeb3()
@@ -164,6 +167,11 @@ export const getTotalRewards = async (lotteryContract) => {
   return lotteryContract.methods.getTotalRewards(issueIdex).call()
 }
 
+export const getTotalRewardsByBalanceOf = async (octagContract) => {  
+  const rewards = await octagContract.methods.balanceOf(getLotteryAddress()).call()
+  return rewards
+}
+
 export const getMax = async (lotteryContract) => {
   return lotteryContract.methods.maxNumber().call()
 }
@@ -183,9 +191,9 @@ export const getMatchingRewardLength = async (lotteryContract, matchNumber) => {
   if (!drawed) {
     issueIdex -= 1
   }
-  try {
-    const amount = await lotteryContract.methods.historyAmount(issueIdex, 5 - matchNumber).call()
-    return amount / 1e18 / 10
+  try {    
+    const amount = await lotteryContract.methods.historyAmount(issueIdex, 5 - matchNumber).call()    
+    return new BigNumber(amount).div(new BigNumber(10).pow(18)).div(LOTTERY_TICKET_PRICE).toNumber()
   } catch (err) {
     console.error(err)
   }

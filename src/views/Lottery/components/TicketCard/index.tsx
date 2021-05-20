@@ -62,7 +62,7 @@ const TicketCard: React.FC<CardProps> = ({ isSecondCard = false }) => {
       <CardBody>
         <CardHeader>
           <IconWrapper>
-            <TicketRound />
+            <img src="/images/lottery/ticket.png" alt="lottery bunny" width="64px" height="64px" />
           </IconWrapper>
           {lotteryHasDrawn ? (
             <TicketCountWrapper>

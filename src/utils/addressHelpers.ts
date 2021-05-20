@@ -28,3 +28,6 @@ export const getAirdropAddress = () => {
 export const getOctagAddress = () => {
   return addresses.octag[chainId]
 }
+export const getBusdAddress = () => {
+  return addresses.busd[chainId]
+}

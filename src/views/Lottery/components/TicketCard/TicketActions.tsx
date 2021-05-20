@@ -1,16 +1,19 @@
 import React, { useCallback, useState } from 'react'
 import styled from 'styled-components'
 import { Button, useModal } from '@pancakeswap-libs/uikit'
+import { TOKEN_NAME } from 'config'
+
 import useI18n from 'hooks/useI18n'
 import useGetLotteryHasDrawn from 'hooks/useGetLotteryHasDrawn'
 import { useLotteryAllowance } from 'hooks/useAllowance'
 import { useLotteryApprove } from 'hooks/useApprove'
 import useTickets from 'hooks/useTickets'
 import useTokenBalance from 'hooks/useTokenBalance'
-import { getCakeAddress } from 'utils/addressHelpers'
+import { getBusdAddress } from 'utils/addressHelpers'
 import BuyTicketModal from './BuyTicketModal'
 import MyTicketsModal from './UserTicketsModal'
 import PurchaseWarningModal from './PurchaseWarningModal'
+
 
 const CardActions = styled.div`
   display: flex;
@@ -28,13 +31,13 @@ const TicketCard: React.FC = () => {
   const allowance = useLotteryAllowance()
   const { onApprove } = useLotteryApprove()
   const lotteryHasDrawn = useGetLotteryHasDrawn()
-  const cakeBalance = useTokenBalance(getCakeAddress())
+  const tokenBalance = useTokenBalance(getBusdAddress()) // USE BUSD TO BUT
 
   const tickets = useTickets()
   const ticketsLength = tickets.length
   const [onPresentMyTickets] = useModal(<MyTicketsModal myTicketNumbers={tickets} from="buy" />)
   const [onPresentApprove] = useModal(<PurchaseWarningModal />)
-  const [onPresentBuy] = useModal(<BuyTicketModal max={cakeBalance} tokenName="CAKE" />)
+  const [onPresentBuy] = useModal(<BuyTicketModal max={tokenBalance} tokenName={TOKEN_NAME} />)
 
   const handleApprove = useCallback(async () => {
     try {
@@ -54,11 +57,11 @@ const TicketCard: React.FC = () => {
     if (!allowance.toNumber()) {
       return (
         <>
-          <Button fullWidth disabled>
+          <Button style={{margin:"0 5px"}} fullWidth disabled>
             {TranslateString(432, 'View your tickets')}
           </Button>
-          <Button fullWidth disabled={requestedApproval} onClick={handleApprove}>
-            {TranslateString(999, 'Approve CAKE')}
+          <Button style={{margin:"0 5px"}} fullWidth disabled={requestedApproval} onClick={handleApprove}>
+            {TranslateString(999, `Approve ${TOKEN_NAME}`)}
           </Button>
         </>
       )

@@ -357,7 +357,7 @@
     {
       "data": {
         "stringId": 426,
-        "text": "Spend OctaX to buy tickets, contributing to the lottery pot. Ticket purchases end approx. 30 minutes before lottery. Win prizes if 2, 3, or 4 of your ticket numbers match the winning numbers and their positions! Good luck!"
+        "text": "Spend BUSD to buy tickets, contributing to the lottery pot. Ticket purchases end approx. 30 minutes before lottery. Win prizes if 2, 3, or 4 of your ticket numbers match the winning numbers and their positions! Good luck!"
       }
     },
     {
@@ -435,19 +435,19 @@
     {
       "data": {
         "stringId": 454,
-        "text": "%num% OctaX Available"
+        "text": "%num% BUSD Available"
       }
     },
     {
       "data": {
         "stringId": 456,
-        "text": "Your amount must be a multiple of 10 OctaX"
+        "text": "Your amount must be a multiple of 1 BUSD"
       }
     },
     {
       "data": {
         "stringId": 458,
-        "text": "1 Ticket = 10 OctaX"
+        "text": "1 Ticket = 1 BUSD"
       }
     },
     {
@@ -495,7 +495,7 @@
     {
       "data": {
         "stringId": 478,
-        "text": "Ticket purchases are final. Your OctaX cannot be returned to you after buying tickets."
+        "text": "Ticket purchases are final. Your BUSD cannot be returned to you after buying tickets."
       }
     },
     {

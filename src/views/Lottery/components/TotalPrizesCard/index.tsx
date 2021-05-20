@@ -4,7 +4,9 @@ import { useWallet } from '@binance-chain/bsc-use-wallet'
 import { Heading, Card, CardBody, CardFooter, Text, PancakeRoundIcon, Flex, Skeleton } from '@pancakeswap-libs/uikit'
 import { getBalanceNumber } from 'utils/formatBalance'
 import useI18n from 'hooks/useI18n'
-import { useTotalRewards } from 'hooks/useTickets'
+import { usePriceOctaGBusd } from 'state/hooks'
+import { useTotalRewards, useTotalRewardsByBalanceOf } from 'hooks/useTickets'
+
 import PastLotteryDataContext from 'contexts/PastLotteryDataContext'
 import ExpandableSectionButton from 'components/ExpandableSectionButton/ExpandableSectionButton'
 import PrizeGrid from '../PrizeGrid'
@@ -52,10 +54,10 @@ const TotalPrizesCard = () => {
   const TranslateString = useI18n()
   const { account } = useWallet()
   const [showFooter, setShowFooter] = useState(false)
-  const lotteryPrizeAmount = +getBalanceNumber(useTotalRewards()).toFixed(0)
+  const octagPrice = usePriceOctaGBusd()
+  const lotteryPrizeAmount = +getBalanceNumber(useTotalRewards())
   const lotteryPrizeWithCommaSeparators = lotteryPrizeAmount.toLocaleString()
-  const { currentLotteryNumber } = useContext(PastLotteryDataContext)
-
+  const { currentLotteryNumber } = useContext(PastLotteryDataContext)    
   return (
     <Card>
       <CardBody>
@@ -64,7 +66,7 @@ const TotalPrizesCard = () => {
             {currentLotteryNumber === 0 && <Skeleton height={20} width={56} />}
             {currentLotteryNumber > 0 && (
               <>
-                <Text fontSize="12px" style={{ fontWeight: 600 }}>{`Round #${currentLotteryNumber}`}</Text>
+                <Text fontSize="16px" style={{ fontWeight: 600 }}>{`Round #${currentLotteryNumber}`}</Text>
               </>
             )}
           </Flex>
@@ -72,13 +74,14 @@ const TotalPrizesCard = () => {
         <CardHeading>
           <Left>
             <IconWrapper>
-              <PancakeRoundIcon />
+              <img src="/images/lottery/octag.png" alt="lottery bunny" width="66px" height="66px" />
             </IconWrapper>
             <PrizeCountWrapper>
               <Text fontSize="14px" color="textSubtle">
                 {TranslateString(999, 'Total Pot:')}
               </Text>
-              <Heading size="lg">{lotteryPrizeWithCommaSeparators} CAKE</Heading>
+              <Heading size="lg">{lotteryPrizeAmount.toFixed(3)} OCTAG</Heading>
+              <Text>~${(octagPrice.toNumber()*lotteryPrizeAmount).toFixed(3)}</Text>
             </PrizeCountWrapper>
           </Left>
           <Right>

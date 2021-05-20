@@ -50,12 +50,14 @@ const PastRoundCardDetails: React.FC<PastRoundCardDetailsProps> = ({ data }) => 
             <TopLotteryCardHeading
               valueToDisplay={`${lotteryNumbers[0]}, ${lotteryNumbers[1]}, ${lotteryNumbers[2]}, ${lotteryNumbers[3]}`}
               Icon={TicketRound}
+              Image="ticket.png"
             >
               {TranslateString(999, 'Winning numbers')}
             </TopLotteryCardHeading>
             <LotteryCardHeading
-              valueToDisplay={TranslateString(999, `${poolSize.toLocaleString()} CAKE`)}
+              valueToDisplay={TranslateString(999, `${poolSize.toLocaleString()} OCTAG`)}
               Icon={PancakeRoundIcon}
+              Image="octag.png"
             >
               {TranslateString(999, 'Total prizes')}
             </LotteryCardHeading>

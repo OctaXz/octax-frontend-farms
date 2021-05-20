@@ -435,25 +435,25 @@
     {
       "data": {
         "stringId": 454,
-        "text": "%num% OctaX \u53ef\u7528"
+        "text": "%num% BUSD \u53ef\u7528"
       }
     },
     {
       "data": {
         "stringId": 456,
-        "text": "\u60a8\u7684\u91d1\u989d\u5fc5\u987b\u7b49\u4e8e 10 OctaX \u7684\u500d\u6570"
+        "text": "\u60a8\u7684\u91d1\u989d\u5fc5\u987b\u7b49\u4e8e 1 BUSD  \u7684\u500d\u6570"
       }
     },
     {
       "data": {
         "stringId": 458,
-        "text": "1 \u5f20\u5f69\u7968 = 10 OctaX"
+        "text": "1 \u5f20\u5f69\u7968 = 1 BUSD"
       }
     },
     {
       "data": {
         "stringId": 460,
-        "text": "\u60a8\u5c06\u82b1\u8d39\uff1a%num% OctaX"
+        "text": "\u60a8\u5c06\u82b1\u8d39\uff1a%num% BUSD"
       }
     },
     {
@@ -507,7 +507,7 @@
     {
       "data": {
         "stringId": 478,
-        "text": "\u5f69\u7968\u8d2d\u4e70\u4e3a\u6700\u7ec8\u72b6\u6001\u3002\u8d2d\u4e70\u5f69\u7968\u540e\uff0c\u65e0\u6cd5\u5c06 OctaX \u9000\u8fd8\u7ed9\u60a8\u3002"
+        "text": "\u5f69\u7968\u8d2d\u4e70\u4e3a\u6700\u7ec8\u72b6\u6001\u3002\u8d2d\u4e70\u5f69\u7968\u540e\uff0c\u65e0\u6cd5\u5c06 BUSD \u9000\u8fd8\u7ed9\u60a8\u3002"
       }
     },
     {

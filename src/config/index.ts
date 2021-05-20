@@ -10,3 +10,7 @@ export const BLOCKS_PER_YEAR = new BigNumber(10512000)
 export const BSC_BLOCK_TIME = 3
 
 export const CAKE_POOL_PID = 1
+// LOTTERY
+export const TOKEN_NAME = "BUSD"
+export const LOTTERY_MAX_NUMBER_OF_TICKETS = 50
+export const LOTTERY_TICKET_PRICE = 1

@@ -6,6 +6,7 @@ interface HeadingProps {
   valueToDisplay?: string
   children?: string
   Icon?: React.ComponentType
+  Image?: string
 }
 
 const IconWrapper = styled.div`
@@ -16,12 +17,12 @@ const IconWrapper = styled.div`
   }
 `
 
-const LotteryCardHeading: React.FC<HeadingProps> = ({ valueToDisplay, children, Icon, ...props }) => {
+const LotteryCardHeading: React.FC<HeadingProps> = ({ valueToDisplay, children, Icon, Image, ...props }) => {
   return (
     <Flex {...props}>
       {Icon && (
         <IconWrapper>
-          <Icon />
+          <img src={`/images/lottery/${Image}`} alt="lottery bunny" width="64px" height="64px" />
         </IconWrapper>
       )}
       <Flex flexDirection="column">

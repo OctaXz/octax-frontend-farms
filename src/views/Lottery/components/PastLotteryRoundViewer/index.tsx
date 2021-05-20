@@ -73,6 +73,8 @@ const PastLotteryRoundViewer = () => {
           isInitialized: true,
         }))
       })
+
+      
   }
 
   return (
