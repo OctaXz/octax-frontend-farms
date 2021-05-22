@@ -3,12 +3,11 @@ import React, { useCallback, useMemo, useState } from 'react'
 import styled from 'styled-components'
 import { Button, Modal, Input, Text } from '@pancakeswap-libs/uikit'
 import { getFullDisplayBalance } from 'utils/formatBalance'
-import { LOTTERY_TICKET_PRICE } from 'config'
 import TicketInput from 'components/TicketInput'
 import ModalActions from 'components/ModalActions'
 import { useMultiBuyLottery, useMaxNumber } from 'hooks/useBuyLottery'
 import useI18n from 'hooks/useI18n'
-
+import { LOTTERY_TICKET_PRICE } from 'config'
 
 interface BuyTicketModalProps {
   max: BigNumber

@@ -39,7 +39,7 @@ const PastLotterySearcher: React.FC<PastLotterySearcherProps> = ({ initialLotter
 
     // The max value will always be the initialLotterNumber which equals
     // the latest lottery round
-    setIsError(value > initialLotteryNumber)
+    setIsError(value > initialLotteryNumber + 1)
     setLotteryNumber(value)
   }
 
@@ -52,7 +52,7 @@ const PastLotterySearcher: React.FC<PastLotterySearcherProps> = ({ initialLotter
             value={lotteryNumber}
             type="number"
             isWarning={isError}
-            max={initialLotteryNumber}
+            max={initialLotteryNumber+1}
             onChange={handleChange}
           />
           <ButtonWrapper>

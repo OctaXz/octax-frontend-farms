@@ -2,11 +2,14 @@ import React from 'react'
 import styled from 'styled-components'
 import { Card, CardBody, TicketRound, Text, Heading } from '@pancakeswap-libs/uikit'
 import useI18n from 'hooks/useI18n'
-import useGetLotteryHasDrawn from 'hooks/useGetLotteryHasDrawn'
+import moment from 'moment';
+import useGetLotteryHasDrawn,{useGetLotteryHasDrawing} from 'hooks/useGetLotteryHasDrawn'
 import useTickets from 'hooks/useTickets'
-import { useCurrentTime } from 'hooks/useTimer'
+// import { useCurrentTime } from 'hooks/useTimer'
+import { useNextExpiredDate } from 'hooks/useIssueIndex'
 import TicketActions from './TicketActions'
-import { getTicketSaleTime } from '../../helpers/CountdownHelpers'
+// import { getTicketSaleTime } from '../../helpers/CountdownHelpers'
+import LotteryCountdown from '../LotteryCountdown'
 
 interface CardProps {
   isSecondCard?: boolean
@@ -49,13 +52,10 @@ const TicketCountWrapper = styled.div`
 
 const TicketCard: React.FC<CardProps> = ({ isSecondCard = false }) => {
   const TranslateString = useI18n()
-  const lotteryHasDrawn = useGetLotteryHasDrawn()
-
+  const lotteryHasDrawn = useGetLotteryHasDrawn()  
   const tickets = useTickets()
-  const ticketsLength = tickets.length
-
-  const currentMillis = useCurrentTime()
-  const timeUntilTicketSale = lotteryHasDrawn && getTicketSaleTime(currentMillis)
+  const ticketsLength = tickets.length  
+  const { nextStartBuyDate } = useNextExpiredDate() 
 
   return (
     <StyledCard isSecondCard={isSecondCard}>
@@ -69,7 +69,7 @@ const TicketCard: React.FC<CardProps> = ({ isSecondCard = false }) => {
               <Text fontSize="14px" color="textSubtle">
                 {TranslateString(999, 'Until ticket sale:')}
               </Text>
-              <Heading size="lg">{timeUntilTicketSale}</Heading>
+              <Heading size="lg">{nextStartBuyDate > parseInt(moment().format('X')) ? <LotteryCountdown destTime={nextStartBuyDate}/> : "0d, 0h, 0m, 0s"}</Heading>
             </TicketCountWrapper>
           ) : (
             <TicketCountWrapper>

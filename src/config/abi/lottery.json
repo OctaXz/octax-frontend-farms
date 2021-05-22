@@ -135,16 +135,6 @@
     "type": "function"
   },
   {
-    "inputs": [
-      { "internalType": "uint256", "name": "_g", "type": "uint256" },
-      { "internalType": "uint256", "name": "_b", "type": "uint256" }
-    ],
-    "name": "adminWithdraw",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-  },
-  {
     "inputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
     "name": "allocation",
     "outputs": [{ "internalType": "uint8", "name": "", "type": "uint8" }],
@@ -173,6 +163,13 @@
     "name": "claimReward",
     "outputs": [],
     "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "distributedFeeAddress",
+    "outputs": [{ "internalType": "address", "name": "", "type": "address" }],
+    "stateMutability": "view",
     "type": "function"
   },
   {
@@ -239,6 +236,13 @@
     "type": "function"
   },
   {
+    "inputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+    "name": "historyDrawingTime",
+    "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
     "inputs": [
       { "internalType": "uint256", "name": "", "type": "uint256" },
       { "internalType": "uint256", "name": "", "type": "uint256" }
@@ -253,7 +257,8 @@
       { "internalType": "contract LotteryNFT", "name": "_lottery", "type": "address" },
       { "internalType": "uint256", "name": "_minPrice", "type": "uint256" },
       { "internalType": "uint8", "name": "_maxNumber", "type": "uint8" },
-      { "internalType": "address", "name": "_adminAddress", "type": "address" }
+      { "internalType": "address", "name": "_adminAddress", "type": "address" },
+      { "internalType": "address", "name": "_distributeFeeAddress", "type": "address" }
     ],
     "name": "initialize",
     "outputs": [],
@@ -324,6 +329,20 @@
   },
   {
     "inputs": [],
+    "name": "nextEeveryHours",
+    "outputs": [{ "internalType": "uint8", "name": "", "type": "uint8" }],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "nextExpiredDate",
+    "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
     "name": "owner",
     "outputs": [{ "internalType": "address", "name": "", "type": "address" }],
     "stateMutability": "view",
@@ -331,13 +350,6 @@
   },
   { "inputs": [], "name": "renounceOwnership", "outputs": [], "stateMutability": "nonpayable", "type": "function" },
   { "inputs": [], "name": "reset", "outputs": [], "stateMutability": "nonpayable", "type": "function" },
-  {
-    "inputs": [{ "internalType": "uint256", "name": "_amount", "type": "uint256" }],
-    "name": "safeBusdTransferFrom",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-  },
   {
     "inputs": [{ "internalType": "address", "name": "_adminAddress", "type": "address" }],
     "name": "setAdmin",
@@ -371,9 +383,23 @@
     "type": "function"
   },
   {
+    "inputs": [{ "internalType": "address", "name": "newAddress", "type": "address" }],
+    "name": "setRouteSwapAddress",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [{ "internalType": "uint8", "name": "_h", "type": "uint8" }],
+    "name": "settingTimeout",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
     "inputs": [{ "internalType": "uint256", "name": "_busdAmount", "type": "uint256" }],
     "name": "swapBeforeBuy",
-    "outputs": [],
+    "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
     "stateMutability": "nonpayable",
     "type": "function"
   },

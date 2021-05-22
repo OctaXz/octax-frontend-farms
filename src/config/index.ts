@@ -14,3 +14,6 @@ export const CAKE_POOL_PID = 1
 export const TOKEN_NAME = "BUSD"
 export const LOTTERY_MAX_NUMBER_OF_TICKETS = 50
 export const LOTTERY_TICKET_PRICE = 1
+
+export const LOTTERY_START_BUY = 24
+export const LOTTERY_STOP_BUY_TO_DRAW_HOUR = 1

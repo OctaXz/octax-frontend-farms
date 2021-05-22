@@ -37,6 +37,7 @@ const PastRoundCardDetails: React.FC<PastRoundCardDetailsProps> = ({ data }) => 
     poolSize,
   } = data
 
+  console.log(data)
   return (
     !data.error &&
     data && (

@@ -2,8 +2,6 @@
 import BigNumber from 'bignumber.js'
 import { Interface } from '@ethersproject/abi'
 import { getWeb3 } from 'utils/web3'
-import erc20 from 'config/abi/erc20.json'
-import multicall from 'utils/multicall'
 import MultiCallAbi from 'config/abi/Multicall.json'
 import ticketAbi from 'config/abi/lotteryNft.json'
 import lotteryAbi from 'config/abi/lottery.json'
@@ -183,6 +181,15 @@ export const getLotteryIssueIndex = async (lotteryContract) => {
 
 export const getLotteryStatus = async (lotteryContract) => {
   return lotteryContract.methods.drawed().call()
+}
+
+export const getLotteryCloseBuy = async (lotteryContract) => {
+  return lotteryContract.methods.drawingPhase().call()
+}
+
+// Time Lottery
+export const getLotteryNextExpiredDate = async (lotteryContract) => {
+  return lotteryContract.methods.nextExpiredDate().call()
 }
 
 export const getMatchingRewardLength = async (lotteryContract, matchNumber) => {

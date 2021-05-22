@@ -19,6 +19,19 @@ const Wrapper = styled.div`
   justify-content: center;
   margin-bottom: 32px;
 `
+const Feature = styled.div`
+  
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 32px;
+
+  ${({ theme }) => theme.mediaQueries.sm} {
+    flex-direction: row;
+  }
+`
+
 
 const Lottery: React.FC = () => {
   const lotteryContract = useLottery()
@@ -41,8 +54,7 @@ const Lottery: React.FC = () => {
 
   useEffect(() => {
     const getInitialLotteryIndex = async () => {
-      const index = await getLotteryIssueIndex(lotteryContract)
-      // console.log("index",index)
+      const index = await getLotteryIssueIndex(lotteryContract)      
       const previousLotteryNumber = index - 1
 
       setCurrentLotteryNumber(index)
@@ -62,6 +74,11 @@ const Lottery: React.FC = () => {
     <>
       <Hero />
       <Page>
+        <Feature>
+          <img src="/images/lottery/feature1.png" alt="lottery bunny" width="447px" height="270px" />
+          <img src="/images/lottery/feature2.png" alt="lottery bunny" width="447px" height="270px" />
+          <img src="/images/lottery/feature3.png" alt="lottery bunny" width="447px" height="270px" />
+        </Feature>
         <Wrapper>
           <ButtonMenu activeIndex={activeIndex} onClick={handleClick} size="sm" variant="subtle">
             <ButtonMenuItem>{TranslateString(999, 'Next draw')}</ButtonMenuItem>

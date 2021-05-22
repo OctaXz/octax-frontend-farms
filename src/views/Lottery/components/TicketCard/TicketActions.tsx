@@ -1,15 +1,16 @@
 import React, { useCallback, useState } from 'react'
 import styled from 'styled-components'
 import { Button, useModal } from '@pancakeswap-libs/uikit'
-import { TOKEN_NAME } from 'config'
-
 import useI18n from 'hooks/useI18n'
-import useGetLotteryHasDrawn from 'hooks/useGetLotteryHasDrawn'
+import moment from 'moment';
+import useGetLotteryHasDrawn, {useGetLotteryHasDrawing} from 'hooks/useGetLotteryHasDrawn'
+import { useNextExpiredDate } from 'hooks/useIssueIndex'
 import { useLotteryAllowance } from 'hooks/useAllowance'
 import { useLotteryApprove } from 'hooks/useApprove'
 import useTickets from 'hooks/useTickets'
 import useTokenBalance from 'hooks/useTokenBalance'
 import { getBusdAddress } from 'utils/addressHelpers'
+import { TOKEN_NAME } from 'config'
 import BuyTicketModal from './BuyTicketModal'
 import MyTicketsModal from './UserTicketsModal'
 import PurchaseWarningModal from './PurchaseWarningModal'
@@ -31,8 +32,9 @@ const TicketCard: React.FC = () => {
   const allowance = useLotteryAllowance()
   const { onApprove } = useLotteryApprove()
   const lotteryHasDrawn = useGetLotteryHasDrawn()
-  const tokenBalance = useTokenBalance(getBusdAddress()) // USE BUSD TO BUT
-
+  const lotteryHasDrawing = useGetLotteryHasDrawing()
+  const tokenBalance = useTokenBalance(getBusdAddress()) // USE BUSD TO BUY
+  const { nextEndBuyDate } = useNextExpiredDate()  
   const tickets = useTickets()
   const ticketsLength = tickets.length
   const [onPresentMyTickets] = useModal(<MyTicketsModal myTicketNumbers={tickets} from="buy" />)
@@ -77,8 +79,8 @@ const TicketCard: React.FC = () => {
         >
           {TranslateString(432, 'View your tickets')}
         </Button>
-        <Button id="lottery-buy-start" fullWidth onClick={onPresentBuy}>
-          {TranslateString(430, 'Buy ticket')}
+        <Button id="lottery-buy-start" fullWidth onClick={onPresentBuy} disabled={lotteryHasDrawing || nextEndBuyDate < parseInt(moment().format('X'))}>
+          {lotteryHasDrawing || nextEndBuyDate < parseInt(moment().format('X')) ? "Waiting draw" : TranslateString(430, 'Buy ticket')}
         </Button>
       </>
     )

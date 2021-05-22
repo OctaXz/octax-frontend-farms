@@ -14,7 +14,7 @@ const LotteryCountdown: React.FC<CountdownValueProps> = (Props) => {
   const [countdown, setCountdown] = useState({Days:"0",Hours: "0",Mins:"0",Secs:"0"})   
   
   useEffect(() => {  
-    const updateCountdown = () => {                    
+    const updateCountdown = () => {                     
         setDistance(countdownDate - parseInt(moment().format('X')))         
         setCountdown({
             Days: distance>0 ? Math.floor(distance / (60 * 60 * 24)).toFixed(0):"0",
